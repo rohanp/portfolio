@@ -1,0 +1,20 @@
+.project {
+  margin-bottom: 50px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 550px) {
+  .row {
+    margin-bottom: 30px;
+  }
+  .project {
+    margin-bottom: 0px;
+  }
+}
