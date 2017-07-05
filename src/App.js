@@ -38,12 +38,17 @@ function Project (props){
 class ProjectTable extends Component {
 
 	searchFilter(query){
+		console.log(typeof(query))
+		query = query.trim().toLowerCase();
+
 		return (app) => {
-			if (app.tags.has(query.strip()))
+			if (query === "" ||
+				  app.tags.some( tag => tag.indexOf(query) !== -1 ) ||
+					app.technologies.some( tech => tech.toLowerCase().indexOf(query) !== -1 ))
 				return true;
 
 			else
-				return query.split().some(q => app.tags.has(q));
+				return query.split().some(q => app.tags.includes(q));
 		};
 	}
 
@@ -70,24 +75,25 @@ class ProjectTable extends Component {
 								.sort()
 		*/
 
-
-		let projects = this.props.projects.map( project => {
-			return <div className="project four columns">
-				<Project
-					name={project.name}
-					link={project.link}
-					inProgress={project.inProgress}
-					img={project.img}
-					description={project.description}
-					technologies={project.technologies}
-					category={project.category}
-					date={project.date}
-					quality={project.quality}
-					tags={project.tags}
-					key={project.name}
-				/>
-			</div>
-		})
+		let projects = this.props.projects
+										.filter(this.searchFilter(this.props.query))
+										.map( project => {
+											return <div className="project four columns">
+												<Project
+													name={project.name}
+													link={project.link}
+													inProgress={project.inProgress}
+													img={project.img}
+													description={project.description}
+													technologies={project.technologies}
+													category={project.category}
+													date={project.date}
+													quality={project.quality}
+													tags={project.tags}
+													key={project.name}
+												/>
+											</div>
+										})
 
 		projects = this.chunk(projects, 3).map(
 			row => {
@@ -96,8 +102,6 @@ class ProjectTable extends Component {
 							 </div>
 					 }
 		);
-
-		console.log(projects)
 
 		return <div> {projects} </div>
 
@@ -110,17 +114,13 @@ class InputBar extends Component {
     dataSource: [],
   };
 
-	handleUpdateInput = (value) => {
-		
-	}
-
   render() {
     return (
       <div className="header">
         <AutoComplete
-          hintText="Search"
+          hintText="Type anything (ex. 'React')"
           dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
+          onUpdateInput={this.props.handleUpdateInput}
         />
       </div>
     );
@@ -129,17 +129,29 @@ class InputBar extends Component {
 
 class App extends Component {
 
+	constructor() {
+		super()
+
+		this.state = {
+			query: ""
+		}
+	}
+
+	handleUpdateInput = (value) => {
+		this.setState({query: value})
+	};
+
 	render(){
 		return (
 			<MuiThemeProvider>
 				<div className="container">
 					<InputBar
+						handleUpdateInput={this.handleUpdateInput}
 					/>
 
 					<ProjectTable
 						projects={this.props.projects}
-						query=""
-						category=""
+						query={this.state.query}
 					/>
 				</div>
 			</MuiThemeProvider>
