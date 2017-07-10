@@ -68,31 +68,26 @@ class ProjectTable extends Component {
 
 
 	render() {
-		/*
-		let projects = this.props.projects
-								.filter(this.searchFilter(this.props.query))
-								.filter(this.categoryFilter(this.props.category))
-								.sort()
-		*/
 
 		let projects = this.props.projects
 										.filter(this.searchFilter(this.props.query))
+										.sort( (p1, p2) => p2.quality - p1.quality )
 										.map( project => {
-											return <div className="project four columns">
-												<Project
-													name={project.name}
-													link={project.link}
-													inProgress={project.inProgress}
-													img={project.img}
-													description={project.description}
-													technologies={project.technologies}
-													category={project.category}
-													date={project.date}
-													quality={project.quality}
-													tags={project.tags}
-													key={project.name}
-												/>
-											</div>
+											return (
+												<div className="project four columns">
+													<Project
+														name={project.name}
+														link={project.link}
+														inProgress={project.inProgress}
+														img={project.img}
+														description={project.description}
+														technologies={project.technologies}
+														category={project.category}
+														date={project.date}
+														key={project.name}
+													/>
+												</div>
+											);
 										})
 
 		projects = this.chunk(projects, 3).map(
