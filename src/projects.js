@@ -11,6 +11,7 @@ const PROJECTS = [
 		quality: 9,
 		tags: ["vector", "field", "vectorfield", "web", "visualization",
 					 "three", "threejs", "javascript", "webgl", "frontend", "front"],
+		antitags: ["java"],
 	}, {
 		name: "Quantum Tic Tac Toe",
 		link: "http://qttt.rohanp.xyz",
@@ -24,7 +25,8 @@ const PROJECTS = [
 		tags: ["quantum", "tic-tac-toe", "tictactoe", "tic tac toe", "web", "js",
 					 "javascript", "angular.js", "angular", "front-end", "front end",
 					 "node", "sockets", "socket", "fullstack", "backend", "frontend",
-					 "full", "back", "front"]
+					 "full", "back", "front"],
+		antitags: ["java"],
 	}, {
 		name: "Messenger Grapher",
 		link: "https://github.com/rohanp/MessengerGrapher",
@@ -35,7 +37,7 @@ const PROJECTS = [
 		category: "data",
 		date: new Date("January 2017"),
 		quality: 6,
-		tags: ["data analysis", "facebook", "numpy", "scipy", "data science"]
+		tags: ["data analysis", "facebook", "numpy", "scipy", "data science"],
 	}, {
 		name: "MemeBot",
 		link: "https://github.com/rohanp/MemeBot",
@@ -46,7 +48,8 @@ const PROJECTS = [
 		category: "web",
 		date: new Date("December 2016"),
 		quality: 2,
-		tags: ["node", "javascript", "backend", "back"]
+		tags: ["node", "javascript", "backend", "back"],
+		antitags: ["java"],
 	}, {
 		name: "VacationBot",
 		link: "https://github.com/rohanp/VacationBot",
@@ -57,7 +60,8 @@ const PROJECTS = [
 		category: "web",
 		date: new Date("August 2016"),
 		quality: 5,
-		tags: ["node", "javascript", "facebook", "backend", "back"]
+		tags: ["node", "javascript", "facebook", "backend", "back"],
+		antitags: ["java"],
 	}, {
 		name: "iCU.fyi",
 		link: "http://icu.fyi",
@@ -68,7 +72,7 @@ const PROJECTS = [
 		category: "web",
 		date: new Date("April 2017"),
 		quality: 9,
-		tags: ["mongo", "database", "databases", "full stack", "front end", "front-end", "front"]
+		tags: ["python", "mongo", "database", "databases", "full stack", "front end", "front-end", "front"],
 	}, {
 		name: "Pokemon Go Bot",
 		link: "https://github.com/rohanp/pokemon-go-bot",
@@ -79,7 +83,8 @@ const PROJECTS = [
 		category: "web",
 		date: new Date("August 2016"),
 		quality: 8,
-		tags: ["javascript", "node", "api", "backend", "back"]
+		tags: ["javascript", "node", "api", "backend", "back"],
+		antitags: ["java"],
 	}, {
 		name: "Ezel",
 		link: "",
@@ -90,7 +95,8 @@ const PROJECTS = [
 		category: "hardware",
 		date: new Date("January 2015"),
 		quality: 7,
-		tags: ["server", "backend", "back", "node"]
+		tags: ["server", "backend", "back", "node"],
+		antitags: ["java"],
 	}, {
 		name: "Locally scaled diffusion map",
 		link: "https://github.com/rohanp/LDFMap",
@@ -101,7 +107,8 @@ const PROJECTS = [
 		category: "data",
 		date: new Date("June 2015"),
 		quality: 4,
-		tags: ["open source", "scipy", "pandas", "data science"]
+		tags: ["open source", "scipy", "pandas", "data science"],
+		antitags: ["java"],
 	}
 ]
 

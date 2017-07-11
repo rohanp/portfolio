@@ -42,7 +42,12 @@ class ProjectTable extends Component {
 		query = query.trim().toLowerCase();
 
 		return (app) => {
-			if (query === "" ||
+
+			if (app.antitags && app.antitags.includes(query)){
+				return false
+			}
+
+			else if (query === "" ||
 				  app.tags.some( tag => tag.indexOf(query) !== -1 ) ||
 					app.technologies.some( tech => tech.toLowerCase().indexOf(query) !== -1 ))
 				return true;
@@ -71,6 +76,7 @@ class ProjectTable extends Component {
 
 		let projects = this.props.projects
 										.filter(this.searchFilter(this.props.query))
+										.filter(this.categoryFilter(this.props.category))
 										.sort( (p1, p2) => p2.quality - p1.quality )
 										.map( project => {
 											return (
@@ -82,7 +88,6 @@ class ProjectTable extends Component {
 														img={project.img}
 														description={project.description}
 														technologies={project.technologies}
-														category={project.category}
 														date={project.date}
 														key={project.name}
 													/>
@@ -147,6 +152,7 @@ class App extends Component {
 					<ProjectTable
 						projects={this.props.projects}
 						query={this.state.query}
+						category={this.props.category}
 					/>
 				</div>
 			</MuiThemeProvider>
