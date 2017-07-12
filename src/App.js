@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Card, CardActions, CardHeader} from 'material-ui/Card';
-import AutoComplete from 'material-ui/AutoComplete';
+import {Card, CardActions, CardMedia, CardHeader} from 'material-ui/Card';
+import TextField from 'material-ui/TextField';
 import Chip from 'material-ui/Chip';
+import github from './assets/github.png';
 import './assets/skeleton.css';
 import './assets/App.css';
 
@@ -13,25 +14,54 @@ function Project (props){
 			margin: 4,
 		},
 		header: {
-			"paddingRight" : 0
+			paddingRight: 0
+		},
+		cardMedia: {
+			marginRight: 20,
+			marginLeft: 15,
+			marginBottom: 10,
+			border: "8px solid black",
+			borderRadius: 2
 		}
 	}
 	const technologies = props.technologies
 												.map((x) => <Chip key={x} style={styles.chip}> {x} </Chip>)
 
+	if (props.github){
+		var githubLink = <a className="github" href={props.github}> <img src={github}/> </a>;
+	}
+
+	if (props.img){
+		if (props.img.indexOf(".mp4") !== -1)
+			var img =  <video autoPlay loop muted timeupdate={() => console.log("here")}> <source src={props.img} type="video/mp4"/> </video>;
+		else
+			var img = <img src={props.img} />;
+
+		var media = (
+						<a href={props.link}>
+							<CardMedia style={styles.cardMedia}>
+								{img}
+							</CardMedia>
+						</a>
+					);
+	}
+
 	return (
-		<a href={props.link}>
-			<Card>
-				<CardHeader
-					title={props.name}
-					subtitle={props.description}
-					textStyle	={styles.header}
-				/>
+		<div className="card">
+			{githubLink}
+				<Card>
+					<CardHeader
+						title={props.name}
+						subtitle={props.description}
+						textStyle={styles.header}
+					/>
+				{media}
 				<CardActions>
 					{technologies}
 				</CardActions>
-			</Card>
-		</a>
+				</Card>
+		</div>
+
 	)
 }
 
@@ -75,8 +105,8 @@ class ProjectTable extends Component {
 	render() {
 
 		let projects = this.props.projects
-										.filter(this.searchFilter(this.props.query))
-										.filter(this.categoryFilter(this.props.category))
+										.filter(this.categoryFilter(this.props.category) &&
+														this.searchFilter(this.props.query))
 										.sort( (p1, p2) => p2.quality - p1.quality )
 										.map( project => {
 											return (
@@ -84,6 +114,7 @@ class ProjectTable extends Component {
 													<Project
 														name={project.name}
 														link={project.link}
+														github={project.github}
 														inProgress={project.inProgress}
 														img={project.img}
 														description={project.description}
@@ -110,17 +141,13 @@ class ProjectTable extends Component {
 
 // receives all user input
 class InputBar extends Component {
-	state = {
-    dataSource: [],
-  };
 
   render() {
     return (
       <div className="header">
-        <AutoComplete
+        <TextField
           hintText="Type anything (ex. 'React')"
-          dataSource={this.state.dataSource}
-          onUpdateInput={this.props.handleUpdateInput}
+          onChange={this.props.handleUpdateInput}
         />
       </div>
     );
@@ -137,7 +164,7 @@ class App extends Component {
 		}
 	}
 
-	handleUpdateInput = (value) => {
+	handleUpdateInput = (e, value) => {
 		this.setState({query: value})
 	};
 
