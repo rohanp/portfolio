@@ -154,13 +154,48 @@ class InputBar extends Component {
   }
 }
 
+class Banner extends Component {
+	render() {
+		let styles = {
+			banner: {
+				backgroundColor: 'black',
+			  color: 'white',
+				display: 'flex',
+				flexDirection: 'row',
+				alignItems: 'center',
+				padding: 20,
+			},
+			msg: {
+				marginLeft: 'auto',
+				marginRight: 'auto',
+				paddingBottom: 0,
+				marginBottom: 0,
+				lineHeight: 1,
+				fontSize: 25,
+				fontWeight: 400,
+			},
+		}
+
+		return (
+			<div style={styles.banner}>
+      	<div style={styles.msg}> {this.props.msg} </div>
+				<svg onClick={this.props.removeBanner} fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+    	</div>
+    )
+	}
+}
+
 class App extends Component {
 
 	constructor() {
 		super()
 
 		this.state = {
-			query: ""
+			query: "",
+			banner: true
 		}
 	}
 
@@ -169,7 +204,16 @@ class App extends Component {
 	};
 
 	render(){
+
+		if (this.state.banner)
+			var banner = 	<Banner 
+											msg={<div>Like what you see? I'm looking for a summer 2018 internship! <a href="mailto:rohan.pandit@columbia.edu">Email Me</a></div>}
+											removeBanner={() => this.setState({banner: false})}
+										/>;
+
 		return (
+			<div>
+			{banner}
 			<MuiThemeProvider>
 				<div className="container">
 					<InputBar
@@ -183,6 +227,7 @@ class App extends Component {
 					/>
 				</div>
 			</MuiThemeProvider>
+			</div>
 		)
 
 	}
