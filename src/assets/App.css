@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 .project {
   margin-bottom: 50px;
 }
@@ -22,6 +25,10 @@
   justify-content: center;
   margin-top: 25px;
   margin-bottom: 30px;
+}
+
+.bar {
+
 }
 
 @media (min-width: 550px) {
