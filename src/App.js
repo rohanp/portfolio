@@ -205,7 +205,7 @@ class App extends Component {
 
 	render(){
 
-		if (this.state.banner)
+		if (false && this.state.banner)
 			var banner = 	<Banner 
 											msg={<div>Like what you see? I'm looking for a summer 2018 internship! <a href="mailto:rohan.pandit@columbia.edu">Email Me</a></div>}
 											removeBanner={() => this.setState({banner: false})}
