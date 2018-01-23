@@ -107,6 +107,26 @@ const PROJECTS = [
 		quality: 4,
 		tags: ["open source", "scipy", "pandas", "data science"],
 		antitags: ["java"],
+	}, {
+		name: "WhatToWear",
+		github: "https://github.com/rohanp/what-to-wear",
+		inProgress: true,
+		description: "An app to automate my daily clothing choices.",
+		technologies: ["React-Native", "JavaScript", "ES6+"],
+		category: "mobile",
+		date: new Date("November 2017"),
+		quality: 5.9,
+		tags: ["mobile", "ios", "frontend", "react", "native"]
+	}, {
+		name: "IOUToken",
+		github: "https://github.com/rohanp/IOUToken",
+		inProgress: true,
+		description: "An ERC-20 token derived from P2P loans",
+		technologies: ["Solidity", "Truffle", "Gananche", "ES6+"],
+		category: "blockchain",
+		date: new Date("January 2018"),
+		quality: 6.5,
+		tags: ["blockchain", "token", "ethereum"]
 	}
 ]
 
