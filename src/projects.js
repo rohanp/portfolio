@@ -93,7 +93,7 @@ const PROJECTS = [
 		technologies: ["Node.js"],
 		category: "hardware",
 		date: new Date("January 2015"),
-		quality: 5,
+		quality: 6.7,
 		tags: ["server", "backend", "back", "node"],
 		antitags: ["java"],
 	}, {
@@ -111,6 +111,7 @@ const PROJECTS = [
 		name: "WhatToWear",
 		github: "https://github.com/rohanp/what-to-wear",
 		inProgress: true,
+		img: "https://s3.amazonaws.com/rohanp/whattowear1.png",
 		description: "An app to automate my daily clothing choices.",
 		technologies: ["React-Native", "JavaScript", "ES6+"],
 		category: "mobile",
