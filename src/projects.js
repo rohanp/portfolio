@@ -116,7 +116,7 @@ const PROJECTS = [
 		technologies: ["React-Native", "JavaScript", "ES6+"],
 		category: "mobile",
 		date: new Date("November 2017"),
-		quality: 5.9,
+		quality: 6.1,
 		tags: ["mobile", "ios", "frontend", "react", "native"]
 	}, {
 		name: "IOUToken",
@@ -126,8 +126,19 @@ const PROJECTS = [
 		technologies: ["Solidity", "Truffle", "Gananche", "ES6+"],
 		category: "blockchain",
 		date: new Date("January 2018"),
-		quality: 6.5,
-		tags: ["blockchain", "token", "ethereum"]
+		quality: 5.9,
+		tags: ["blockchain", "token", "ethereum", "crypto"]
+	}, {
+		name: "Bessie",
+		github: "",
+		inProgress: false,
+		img: "https://s3.amazonaws.com/rohanp/bessie.jpg",
+		description: "A dorm room crypto miner.",
+		technologies: ["Windows", "hardware"],
+		category: "blockchain",
+		date: new Date("December 2017"),
+		quality: 7,
+		tags: ["crypto", "blockchain", "ethereum"]
 	}
 ]
 
