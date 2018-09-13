@@ -111,7 +111,7 @@ const PROJECTS = [
 		name: "WhatToWear",
 		github: "https://github.com/rohanp/what-to-wear",
 		inProgress: true,
-		img: "https://s3.amazonaws.com/rohanp/whattowear1.png",
+		img: "https://s3.amazonaws.com/rohanp/whattowear.gif",
 		description: "An app to automate my daily clothing choices.",
 		technologies: ["React-Native", "JavaScript", "ES6+"],
 		category: "mobile",
