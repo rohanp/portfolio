@@ -41,14 +41,15 @@ const PROJECTS = [
 		quality: 6,
 		tags: ["data analysis", "facebook", "numpy", "scipy", "data science"],
 	}, {
-		name: "MemeBot",
+		name: "Roh Bot",
 		github: "https://github.com/rohanp/MemeBot",
+		img: "https://s3.amazonaws.com/rohanp/rohbot.gif",
 		inProgress: false,
-		description: "Delivers fresh memes to facebook inboxes daily. Now includes interactivity!",
+		description: "Rohan, but in bot form.",
 		technologies: ["Node.js"],
 		category: "web",
 		date: new Date("December 2016"),
-		quality: 2,
+		quality: 2.5,
 		tags: ["node", "javascript", "backend", "back"],
 		antitags: ["java"],
 	}, {
