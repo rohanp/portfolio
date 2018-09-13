@@ -32,6 +32,7 @@ const PROJECTS = [
 	}, {
 		name: "Messenger Grapher",
 		github: "https://github.com/rohanp/MessengerGrapher",
+		img: "https://s3.amazonaws.com/rohanp/number_messaged_by_day3.png",
 		inProgress: false,
 		description: "Scrapes and creates graphs out of Facebook messaging data",
 		technologies: ["Python", "Pandas", "BeautifulSoup", "Matplotlib"],
@@ -76,6 +77,7 @@ const PROJECTS = [
 	}, {
 		name: "Pokemon Go Bot",
 		github: "https://github.com/rohanp/pokemon-go-bot",
+		img: "https://s3.amazonaws.com/rohanp/pokemongo.png",
 		inProgress: false,
 		description: "A bot that autonomously plays Pokemon Go by walking around psuedo-humanly, farming pokemon, and restocking on items when low.",
 		technologies: ["Node.js", "API design", "ES6+"],
@@ -111,7 +113,7 @@ const PROJECTS = [
 		name: "WhatToWear",
 		github: "https://github.com/rohanp/what-to-wear",
 		inProgress: true,
-		img: "https://s3.amazonaws.com/rohanp/whattowear.gif",
+		img: "https://s3.amazonaws.com/rohanp/whattowearcropped.gif",
 		description: "An app to automate my daily clothing choices.",
 		technologies: ["React-Native", "JavaScript", "ES6+"],
 		category: "mobile",
