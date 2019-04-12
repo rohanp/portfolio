@@ -66,7 +66,7 @@ const PROJECTS = [
 	}, {
 		name: "iCU.fyi",
 		github: "https://github.com/rohanp/icu",
-		link: "http://icu.fyi",
+		link: "https://limitless-basin-89024.herokuapp.com/",
 		inProgress: false,
 		img: "	https://s3.amazonaws.com/rohanp/icu.gif",
 		description: "A Columbia internal matchmaking platform with 600+ users.",
